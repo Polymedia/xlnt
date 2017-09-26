@@ -1420,6 +1420,8 @@ void xlsx_consumer::read_worksheet(const std::string &rel_id)
 
     expect_start_element(qn("spreadsheetml", "worksheet"), xml::content::complex); // CT_Worksheet
     skip_attributes({qn("mc", "Ignorable")});
+    skip_attribute(qn("xr", "uid"));
+
     read_namespaces();
 
     xlnt::range_reference full_range;
